@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MahApps.Metro;
 using MahApps.Metro.Controls;
 
 namespace Spielewiese
@@ -24,6 +25,31 @@ namespace Spielewiese
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void ToggleSwitch_IsCheckedChanged(object sender, EventArgs e)
+        {
+            if(Toogle_Theme.IsChecked == true)
+            {
+                ThemeManager.ChangeAppTheme(Application.Current, "BaseDark");
+            }
+            else
+            {
+                ThemeManager.ChangeAppTheme(Application.Current, "BaseLight");
+            }
+        }
+
+        private void flyout_settings_IsOpenChanged(object sender, RoutedEventArgs e)
+        {
+            if(flyout_settings.IsOpen == true)
+            {
+                Console.WriteLine("Geöffnet");
+            }
+            else
+            {
+                Console.WriteLine("Geschlossen");
+            }
+            
         }
     }
 }
